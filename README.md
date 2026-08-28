@@ -10,10 +10,21 @@ Alan Napieralski's personal Claude Code plugin for Numiko workflows.
 
 ## Installation
 
-This repository is a single plugin (no marketplace layer), so load it directly by local path:
+This repository is also its own marketplace, so it can be installed through the Claude Code desktop app or CLI:
+
+```bash
+claude plugin marketplace add alannapieralski/skills
+claude plugin install alan-napieralski-numiko@alan-napieralski-numiko
+```
+
+Or add it as a local path instead of a GitHub remote if you're developing against a local clone:
+
+```bash
+claude plugin marketplace add /path/to/skills
+```
+
+For a one-off local test without installing, load the plugin directly:
 
 ```bash
 claude --plugin-dir /path/to/skills
 ```
-
-To share it with a marketplace instead, add a `.claude-plugin/marketplace.json` listing this plugin.
