@@ -1,0 +1,16 @@
+{
+  "name": "alan-napieralski-numiko",
+  "owner": {
+    "name": "Alan Napieralski",
+    "email": "alannapieralski@numiko.com"
+  },
+  "metadata": {
+    "description": "Local marketplace serving the alan-napieralski-numiko plugin"
+  },
+  "plugins": [
+    {
+      "name": "alan-napieralski-numiko",
+      "source": "./"
+    }
+  ]
+}
