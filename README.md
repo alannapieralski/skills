@@ -6,6 +6,7 @@ Alan Napieralski's personal Claude Code plugin for Numiko workflows.
 
 - **investigate** — `/investigate SKP-31` — investigates a Jira ticket and the relevant codebase(s), then produces a findings report with a proposed implementation and clarifying questions.
 - **commit-with-context** — `/commit-with-context` — commits the current changes with a message combining an imperative ticket-prefixed title and a bulleted body drawn from the diff and conversation context.
+- **ask** — `/ask` — read-only question-answering mode for a single message: reads, searches, and explains without making any changes.
 
 ## Installation
 
