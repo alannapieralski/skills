@@ -9,7 +9,7 @@
   },
   "plugins": [
     {
-      "name": "alan-napieralski-numiko",
+      "name": "my",
       "source": "./"
     }
   ]

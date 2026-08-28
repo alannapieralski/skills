@@ -14,7 +14,7 @@ This repository is also its own marketplace, so it can be installed through the 
 
 ```bash
 claude plugin marketplace add alannapieralski/skills
-claude plugin install alan-napieralski-numiko@alan-napieralski-numiko
+claude plugin install my@alan-napieralski-numiko
 ```
 
 Or add it as a local path instead of a GitHub remote if you're developing against a local clone:
