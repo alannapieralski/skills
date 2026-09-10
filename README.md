@@ -9,10 +9,46 @@ These are personal preferences, not Numiko house standards — those live in
 
 Each is invoked explicitly; none activate from phrasing alone.
 
-- **investigate** — `/investigate SKP-31` — investigates a Jira ticket and the relevant codebase(s), then produces a findings report with a proposed implementation and clarifying questions.
-- **commit-with-context** — `/commit-with-context` — commits the current changes with a message combining an imperative ticket-prefixed title and a bulleted body drawn from the diff and conversation context.
-- **create-pr-description** — `/create-pr-description <branch>` — writes a pull request description for a reviewer who has seen neither the project nor the ticket, from the commit history, the diff against a target branch, and the conversation.
-- **ask** — `/ask` — read-only question-answering mode for a single message: reads, searches, and explains without making any changes.
+<details>
+<summary><strong>investigate</strong> — <code>/investigate SKP-31</code></summary>
+
+Investigates a Jira ticket and the relevant codebase(s), then produces a findings report with a proposed implementation and clarifying questions.
+
+Use when:
+- You have a Jira ticket ID or URL and want analysis before implementation begins
+- You want the ticket read fully before any codebase digging starts, so findings are interpreted against it rather than the other way round
+
+</details>
+
+<details>
+<summary><strong>commit-with-context</strong> — <code>/commit-with-context</code></summary>
+
+Commits the current uncommitted and staged changes with a message combining an imperative ticket-prefixed title and a bulleted body drawn from the diff and conversation context.
+
+Use when:
+- You want a commit message that captures the ticket, the diff, and the reasoning discussed in conversation, not just a one-line summary
+
+</details>
+
+<details>
+<summary><strong>create-pr-description</strong> — <code>/create-pr-description &lt;branch&gt;</code></summary>
+
+Writes a pull request description for a reviewer who has seen neither the project nor the ticket, from the commit history, the diff against a target branch, and the conversation.
+
+Use when:
+- You're opening a PR and want a description plus inline review notes for anything in the diff a reviewer would otherwise stumble on
+
+</details>
+
+<details>
+<summary><strong>ask</strong> — <code>/ask</code></summary>
+
+Read-only question-answering mode for a single message: reads, searches, and explains without making any changes.
+
+Use when:
+- You want an answer, not a change — a single-turn question that must not touch any files
+
+</details>
 
 ## Install
 
