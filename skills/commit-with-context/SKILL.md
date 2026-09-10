@@ -43,7 +43,11 @@ Note any reasons, trade-offs, or decisions already discussed for why the change 
 
 ### 4. Stage and commit
 
-Stage the relevant files by name (never `git add -A` or `git add .`). Review the staged diff for anything that looks like a secret before committing. Write the message using the format below and commit via heredoc. This skill only creates a local commit, never push unless separately asked.
+Stage the relevant files by name (never `git add -A` or `git add .`). Review the staged diff for anything that looks like a secret before committing. Write the message using the format below, then verify it (step 5) before committing via heredoc. This skill only creates a local commit, never push unless separately asked.
+
+### 5. Verify the line lengths
+
+Before committing, check the drafted message against the limits in the format section: title line ≤ 50 characters, every body line (each bullet) ≤ 72 characters. Count characters directly rather than estimating. If a line is over, shorten it, don't just note the excess. Only commit once every line passes.
 
 ## Commit message format
 
@@ -70,6 +74,7 @@ Exactly two parts: a title line, then a bulleted body. Never a free-form paragra
 - Change bullets: describe what was actually changed, grounded in the diff, file by file or behaviour by behaviour, whichever reads more clearly.
 - Rationale bullets: capture the why from the conversation, the problem being solved, the approach chosen, and any alternative ruled out.
 - One line per bullet. Omit a category entirely when it has nothing to say (for example, no ticket bullet when there is no extra ticket context beyond the ID).
+- 72 characters is the hard limit per body line, including the leading `- `. Wrap a long bullet onto a continuation line indented two spaces rather than exceeding it (see the rationale bullet in the example below).
 
 ## Source of each part
 
