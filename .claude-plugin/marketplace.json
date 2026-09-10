@@ -1,16 +1,22 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "alan-napieralski-numiko",
   "owner": {
     "name": "Alan Napieralski",
-    "email": "alannapieralski@numiko.com"
+    "email": "alannapieralski@numiko.com",
+    "url": "https://github.com/alannapieralski/skills"
   },
   "metadata": {
-    "description": "Local marketplace serving the alan-napieralski-numiko plugin"
+    "description": "Local marketplace serving the alann plugin"
   },
   "plugins": [
     {
-      "name": "my",
-      "source": "./"
+      "name": "alann",
+      "displayName": "Alan Napieralski's Skills",
+      "description": "Alan Napieralski's personal skills for Numiko workflows. Not house standards.",
+      "source": "./",
+      "category": "personal",
+      "keywords": ["personal", "numiko", "workflow"]
     }
   ]
 }

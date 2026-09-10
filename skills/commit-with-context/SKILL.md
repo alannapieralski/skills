@@ -2,6 +2,8 @@
 name: commit-with-context
 description: Commit the current uncommitted and staged changes with a message combining a short imperative title and a bulleted body drawn from the diff, any ticket context already discussed in the conversation, and the conversation's rationale. Invoke with /commit-with-context {optional ticket context}
 disable-model-invocation: true
+metadata:
+  version: "0.1.0" # x-release-please-version
 ---
 
 # Commit With Context
