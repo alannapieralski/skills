@@ -3,7 +3,7 @@ name: commit-with-context
 description: Commit the current uncommitted and staged changes, split into one or more commits by concern, each with a short imperative title and a high-level bulleted body covering the idea and the rationale from the conversation, not a line-by-line changelog. Invoke with /commit-with-context {optional ticket context}
 disable-model-invocation: true
 metadata:
-  version: "0.1.1" # x-release-please-version
+  version: "0.1.2" # x-release-please-version
 ---
 
 # Commit With Context
