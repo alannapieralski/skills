@@ -3,7 +3,7 @@ name: create-pr-description
 description: Write a pull request description aimed at a reviewer who has never seen the project or the ticket, plus inline review notes for the parts of the diff that need them. Use when the user asks for a PR description, a pull request write-up, or says something like "write this up for the PR" or "describe this branch", or invokes "/create-pr-description <branch>".
 disable-model-invocation: true
 metadata:
-  version: "0.1.0" # x-release-please-version
+  version: "0.1.1" # x-release-please-version
 ---
 
 # Create PR description
