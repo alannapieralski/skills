@@ -45,9 +45,7 @@ Commits must follow Conventional Commits, because release-please parses the hist
 skill changed and how to bump it. The `.claude/skills/conventional-commit` skill carries the format
 and the type-selection rules, and auto-loads when working here — follow it.
 
-It overrides `skills/commit-with-context`. That skill writes `TICKET-123 Title` messages for client
-project work; this repo has no tickets, and a ticket-prefixed title parses as no type at all, so it
-would bump nothing.
+It overrides `skills/commit-with-context` here — that skill's own docs explain why.
 
 ## After any change
 
