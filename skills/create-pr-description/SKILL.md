@@ -2,6 +2,8 @@
 name: create-pr-description
 description: Write a pull request description aimed at a reviewer who has never seen the project or the ticket, by reading the commit history, the diff against a target branch, the current conversation and anything the user says to emphasise. Use this whenever the user asks for a PR description, pull request description, PR write-up, or says something like "write this up for the PR", "describe this branch", "I need a description for this pull request", or "/create-pr-description <branch>". Also use it when a branch is finished and the user is about to raise a PR, even if they do not name the skill.
 disable-model-invocation: true
+metadata:
+  version: "0.1.0" # x-release-please-version
 ---
 
 # Create PR description

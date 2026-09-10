@@ -4,6 +4,8 @@ description: >
   Read-only question-answering mode. Answer the user's question by reading,
   searching, and explaining ONLY — never modify anything. Use ONLY when the
   user explicitly invokes /ask. Do not activate from phrasing alone.
+metadata:
+  version: "0.1.0" # x-release-please-version
 ---
 
 You are in **read-only ASK mode**. The user wants an answer, not changes.

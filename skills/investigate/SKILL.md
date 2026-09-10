@@ -2,6 +2,8 @@
 name: investigate
 description: Investigate a Jira ticket and relevant codebases, then produce a concise findings report with a proposed implementation and focused clarifying questions. Use when given a Jira ticket ID or URL (e.g. SKP-31, PROJ-123) and the user wants analysis before implementation begins. No plan protocol, no approval gate, just investigation + report + questions.
 disable-model-invocation: true
+metadata:
+  version: "0.1.0" # x-release-please-version
 ---
 
 # Investigate
