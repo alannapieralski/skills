@@ -1,6 +1,6 @@
 ---
 name: commit-with-context
-description: Commit the current uncommitted and staged changes with a message combining a short imperative title and a bulleted body drawn from the diff, any ticket context already discussed in the conversation, and the conversation's rationale. Invoke with /commit-with-context {optional ticket context}
+description: Commit the current uncommitted and staged changes, split into one or more commits by concern, each with a short imperative title and a high-level bulleted body covering the idea and the rationale from the conversation, not a line-by-line changelog. Invoke with /commit-with-context {optional ticket context}
 disable-model-invocation: true
 metadata:
   version: "0.1.1" # x-release-please-version
@@ -37,17 +37,28 @@ The ticket ID is mandatory. It is not optional context, it must prefix the commi
 
 Beyond the ID itself, also check the conversation for any ticket title or description. That is optional context for a bullet, unlike the ID it can be omitted if it does not exist.
 
-### 3. Gather rationale
+### 3. Group the changes into commits
 
-Note any reasons, trade-offs, or decisions already discussed for why the change was made this way, not just what changed.
+Read the full diff and split it into one or more commits along concerns, not along files. A concern is a single coherent idea (a fix, a feature, a refactor); unrelated concerns that happen to sit in the same working tree get separate commits.
 
-### 4. Stage and commit
+Two pulls in tension here, resolve them in this order:
 
-Stage the relevant files by name (never `git add -A` or `git add .`). Review the staged diff for anything that looks like a secret before committing. Write the message using the format below, then verify it (step 5) before committing via heredoc. This skill only creates a local commit, never push unless separately asked.
+1. **Never commit a broken intermediate state.** If change A only makes sense, compiles, or passes with change B (a function and its only caller, a config key and the code that reads it, a rename split across files), they go in the *same* commit even if they touch different concerns on paper. Splitting them apart would mean an earlier commit leaves the tree broken or mid-thought.
+2. **Otherwise, split by concern.** If two changes are each independently coherent and neither depends on the other to make sense, put them in separate commits rather than bundling them into one "misc changes" commit.
 
-### 5. Verify the line lengths
+Decide the grouping before staging anything. For each group, note which files (or, if a single file mixes two concerns, which hunks) belong to it.
 
-Before committing, check the drafted message against the limits in the format section: title line ≤ 50 characters, every body line (each bullet) ≤ 72 characters. Count characters directly rather than estimating. If a line is over, shorten it, don't just note the excess. Only commit once every line passes.
+### 4. Gather rationale
+
+Note any reasons, trade-offs, or decisions already discussed for why the change was made this way, not just what changed. Gather this per group where the discussion differed by concern.
+
+### 5. Stage and commit each group
+
+For each group, in an order where earlier commits don't depend on later ones: stage its files by name (never `git add -A` or `git add .`; use `git add -p` when a single file needs splitting across two commits). Review the staged diff for anything that looks like a secret before committing. Write the message using the format below, then verify it (step 6) before committing via heredoc. Repeat until every group is committed. This skill only creates local commits, never push unless separately asked.
+
+### 6. Verify the line lengths
+
+Before each commit, check the drafted message against the limits in the format section: title line ≤ 50 characters, every body line (each bullet) ≤ 72 characters. Count characters directly rather than estimating. If a line is over, shorten it, don't just note the excess. Only commit once every line passes.
 
 ## Commit message format
 
@@ -70,28 +81,38 @@ Exactly two parts: a title line, then a bulleted body. Never a free-form paragra
 
 ### Bullet rules
 
+Stay high level. The body explains the idea and the reason for it, not a changelog of every line touched: not what happened hunk by hunk, but why the diff exists.
+
 - Ticket bullet: an optional extra bullet with the ticket's title or description, include it only when that extra context already exists (from the conversation or the invocation argument), beyond the ID itself which already lives in the title.
-- Change bullets: describe what was actually changed, grounded in the diff, file by file or behaviour by behaviour, whichever reads more clearly.
-- Rationale bullets: capture the why from the conversation, the problem being solved, the approach chosen, and any alternative ruled out.
+- Summary bullet: one bullet giving the high-level shape of the change, the problem it addresses and the approach taken, fused together rather than split into a separate "what" bullet per file or function touched. Name a file only when the message would otherwise be too vague to locate the change.
+- Rationale bullet: only when there is a non-obvious trade-off or rejected alternative worth recording beyond the summary bullet's "why".
+- Most commits need one or two bullets total, not one per file or per hunk. If a commit's body would need many bullets to cover everything touched, that is usually a sign the commit should have been split further in step 3.
 - One line per bullet. Omit a category entirely when it has nothing to say (for example, no ticket bullet when there is no extra ticket context beyond the ID).
 - 72 characters is the hard limit per body line, including the leading `- `. Wrap a long bullet onto a continuation line indented two spaces rather than exceeding it (see the rationale bullet in the example below).
 
 ## Source of each part
 
+- Grouping: derived from reading the whole diff in step 3, not from file names alone.
 - Ticket ID prefix: derived from the current branch name, or the conversation, or the invocation argument, in that order. Never invented, always confirmed with the user first if genuinely unavailable.
-- Title summary and change bullets: derived from `git diff` and `git diff --cached`.
+- Title summary and summary bullet: derived from the group's own diff.
 - Ticket bullet: derived only from context already surfaced in the conversation or passed as an argument to this skill. Never invented or looked up independently.
-- Rationale bullets: derived from the conversation's discussion of why the change was made.
+- Rationale bullet: derived from the conversation's discussion of why the change was made.
 
 ## Example
 
-On branch `SEARCH-142`, given a diff adding debounce logic to a search input, and a conversation that already established the ticket is about search firing an API call on every keystroke:
+On branch `SEARCH-142`, a diff that both debounces the search input and, unrelated, fixes a typo in the results empty-state copy. Two concerns, two commits:
 
 ```
 SEARCH-142 Debounce the search input API calls
 
-- Search input was firing an API call on every keystroke.
-- Added a 300ms debounce to the input handler in search-box.js before dispatching the fetch.
-- Chose a fixed 300ms delay over cancel-on-keystroke, since the existing fetch
-  already de-duplicates in-flight requests.
+- Search was firing an API call on every keystroke; debounce the
+  input handler so it fires once typing settles.
+- Chose a fixed delay over cancel-on-keystroke, since the existing
+  fetch already de-duplicates in-flight requests.
+```
+
+```
+SEARCH-142 Fix typo in empty-state message
+
+- "No reuslts found" read wrong when a search returns nothing.
 ```
