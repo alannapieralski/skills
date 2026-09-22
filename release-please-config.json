@@ -16,6 +16,14 @@
     { "type": "ci", "section": "CI", "hidden": true }
   ],
   "packages": {
+    ".": {
+      "release-type": "simple",
+      "component": "alann",
+      "changelog-path": "CHANGELOG.md",
+      "extra-files": [
+        { "type": "json", "path": ".claude-plugin/plugin.json", "jsonpath": "$.version" }
+      ]
+    },
     "skills/ask": {
       "release-type": "simple",
       "component": "ask",
