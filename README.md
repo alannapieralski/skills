@@ -18,6 +18,10 @@ Use when:
 - You have a Jira ticket ID or URL and want analysis before implementation begins
 - You want the ticket read fully before any codebase digging starts, so findings are interpreted against it rather than the other way round
 
+**Arguments** — `[ticket ID] [context]`
+- `ticket ID`: a Jira ticket ID or URL (e.g. `SKP-31`). Read in full before any codebase digging starts.
+- `context` (optional): additional context, constraints, or steering notes to weight the investigation.
+
 </details>
 
 <details>
@@ -28,6 +32,11 @@ Commits the current uncommitted and staged changes with a message combining an i
 Use when:
 - You want a commit message that captures the ticket, the diff, and the reasoning discussed in conversation, not just a one-line summary
 
+**Arguments** — `[ticket ID or context | noid]`
+- No argument: fine if the ticket was already established earlier in the conversation.
+- `ticket ID or context`: pass this only if the ticket hasn't come up yet and should be included.
+- `noid`: skips the ticket ID entirely, even if one is available.
+
 </details>
 
 <details>
@@ -37,6 +46,10 @@ Writes a pull request description for a reviewer who has seen neither the projec
 
 Use when:
 - You're opening a PR and want a description plus inline review notes for anything in the diff a reviewer would otherwise stumble on
+
+**Arguments** — `[target-branch] [emphasis]`
+- `target-branch`: what the PR will merge into (`master`, `main`, `develop`, `sprint/q8`). If omitted, it's inferred from `git branch --show-current` and the repo's usual base, asking rather than assuming.
+- `emphasis` (optional): anything else on the line is treated as context the user wants reflected in the description or review notes.
 
 </details>
 
