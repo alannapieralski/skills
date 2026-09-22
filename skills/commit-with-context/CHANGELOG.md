@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.4](https://github.com/alannapieralski/skills/compare/commit-with-context-v0.1.3...commit-with-context-v0.1.4) (2026-09-22)
+
+
+### Features
+
+* **commit-with-context:** allow opting out of the ticket ID ([f132c9a](https://github.com/alannapieralski/skills/commit/f132c9ad468ea9be24325208fb809db97441c5e6))
+
+
+### Refactors
+
+* **commit-with-context:** split format into reference ([69959cd](https://github.com/alannapieralski/skills/commit/69959cd7519647438716a277544bf25fa99f44a5))
+
 ## [0.1.3](https://github.com/alannapieralski/skills/compare/commit-with-context-v0.1.2...commit-with-context-v0.1.3) (2026-09-22)
 
 

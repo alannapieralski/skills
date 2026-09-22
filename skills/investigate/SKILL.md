@@ -4,7 +4,7 @@ description: Investigate a Jira ticket and relevant codebases, then produce a co
 disable-model-invocation: true
 argument-hint: "[ticket ID] [context]"
 metadata:
-  version: "0.1.1" # x-release-please-version
+  version: "0.1.2" # x-release-please-version
 ---
 
 # Investigate
