@@ -10,10 +10,12 @@ Exactly two parts: a title line, then a bulleted body. Never a free-form paragra
 - <bullet>
 ```
 
+If the user opted out of a ticket ID (step 2), drop the `<TICKET-ID> ` prefix entirely and start the title straight with the summary — everything else about the title and body stays the same.
+
 ## Title rules
 
-- Always prefix the title with the ticket ID found in step 2, followed by a space. This is not optional and never omitted.
-- After the prefix, summarise the net effect of the whole diff in one line, not a list of files touched.
+- Prefix the title with the ticket ID found in step 2, followed by a space, unless the user opted out. When opted out, no prefix and no placeholder in its place.
+- After the prefix (or, with no ID, at the start of the line), summarise the net effect of the whole diff in one line, not a list of files touched.
 - Use the imperative mood ("Add", "Fix", "Refactor", not "Added" or "Fixes").
 - 50 characters is the hard limit for the whole line, prefix included. Shorter is better. Trim the summary, never the ticket ID, to fit.
 
@@ -35,7 +37,7 @@ Never add a `Co-Authored-By` trailer, or any other attribution line, to the comm
 ## Source of each part
 
 - Grouping: derived from reading the whole diff in step 3, not from file names alone.
-- Ticket ID prefix: derived from the current branch name, or the conversation, or the invocation argument, in that order. Never invented, always confirmed with the user first if genuinely unavailable.
+- Ticket ID prefix: derived from the current branch name, or the conversation, or the invocation argument, in that order. Never invented, always confirmed with the user first if genuinely unavailable — unless they opted out with `noid` or otherwise, in which case it's dropped, not asked for.
 - Title summary and summary bullet: derived from the group's own diff.
 - Ticket bullet: derived only from context already surfaced in the conversation or passed as an argument to this skill. Never invented or looked up independently.
 - Rationale bullet: derived from the conversation's discussion of why the change was made.

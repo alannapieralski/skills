@@ -1,8 +1,8 @@
 ---
 name: commit-with-context
-description: Commit the current uncommitted and staged changes, split into one or more commits by concern, each with a short imperative title and a high-level bulleted body covering the idea and the rationale from the conversation, not a line-by-line changelog. Invoke with /commit-with-context {optional ticket context}
+description: Commit the current uncommitted and staged changes, split into one or more commits by concern, each with a short imperative title and a high-level bulleted body covering the idea and the rationale from the conversation, not a line-by-line changelog. Invoke with /commit-with-context {optional ticket context}, or pass noid to skip the ticket ID entirely.
 disable-model-invocation: true
-argument-hint: "[ticket ID or context]"
+argument-hint: "[ticket ID or context | noid]"
 metadata:
   version: "0.1.2" # x-release-please-version
 ---
@@ -14,9 +14,12 @@ metadata:
 ```
 /commit-with-context
 /commit-with-context {ticket ID or context, if not already discussed}
+/commit-with-context noid
 ```
 
 No argument is needed if ticket context was already established earlier in the conversation. Only pass one if the ticket has not come up yet and should be included.
+
+Pass `noid`, or say elsewhere in the conversation that the ticket ID should be left out, to opt out of the ticket ID entirely — see step 2.
 
 ## Instructions
 
@@ -30,11 +33,15 @@ Run:
 
 ### 2. Find the ticket ID
 
-The ticket ID is mandatory. It is not optional context, it must prefix the commit title (see `references/format.md`). Look for it in this order:
+The ticket ID is mandatory and must prefix the commit title (see `references/format.md`), unless the user opts out.
+
+**Opt-out:** if the invocation argument is `noid`, or the user has otherwise said not to include a ticket ID, skip this step entirely: no lookup, no ask, and the title carries no ticket prefix (see `references/format.md`).
+
+Otherwise, look for it in this order:
 
 1. The current branch name, run `git branch --show-current`. In this convention the branch is named after the ticket (for example `TEEN-650`), so the branch name usually is the ticket ID.
 2. The conversation, or the argument passed to this skill, if a ticket ID was already mentioned there.
-3. If neither yields a ticket ID, stop and ask the user for it before doing anything else. Do not guess, invent, or continue without one.
+3. If neither yields a ticket ID, stop and ask the user for it before doing anything else. Do not guess, invent, or continue without one — unless they choose to opt out at that point instead.
 
 Beyond the ID itself, also check the conversation for any ticket title or description. That is optional context for a bullet, unlike the ID it can be omitted if it does not exist.
 
