@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/alannapieralski/skills/compare/create-pr-description-v0.1.1...create-pr-description-v0.1.2) (2026-09-22)
+
+
+### Features
+
+* **create-pr-description:** offer to write description to PR ([f291408](https://github.com/alannapieralski/skills/commit/f291408efc377ab61c7929393308793842bd249a))
+
 ## [0.1.1](https://github.com/alannapieralski/skills/compare/create-pr-description-v0.1.0...create-pr-description-v0.1.1) (2026-09-10)
 
 

@@ -4,7 +4,7 @@ description: Commit the current uncommitted and staged changes, split into one o
 disable-model-invocation: true
 argument-hint: "[ticket ID or context]"
 metadata:
-  version: "0.1.2" # x-release-please-version
+  version: "0.1.3" # x-release-please-version
 ---
 
 # Commit With Context
