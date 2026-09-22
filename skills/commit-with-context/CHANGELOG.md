@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.1.3](https://github.com/alannapieralski/skills/compare/commit-with-context-v0.1.2...commit-with-context-v0.1.3) (2026-09-22)
+
+
+### Features
+
+* **commit-with-context:** forbid attribution trailers ([e100a41](https://github.com/alannapieralski/skills/commit/e100a413fcf4d4b420cfc09df0e56d71a40ffb39))
+* **commit-with-context:** show ticket arg in hint ([8c890a9](https://github.com/alannapieralski/skills/commit/8c890a9f03f2b0b13f4d31c9a338f3726ac1381c))
+
+
+### Bug Fixes
+
+* **commit-with-context:** call out same-file merge trap ([59f885e](https://github.com/alannapieralski/skills/commit/59f885e58ea35569629c951713a1cad8c3eee08e))
+
 ## [0.1.2](https://github.com/alannapieralski/skills/compare/commit-with-context-v0.1.1...commit-with-context-v0.1.2) (2026-09-10)
 
 
