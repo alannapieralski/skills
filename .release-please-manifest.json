@@ -1,6 +1,6 @@
 {
   "skills/ask": "0.1.1",
-  "skills/commit-with-context": "0.1.1",
+  "skills/commit-with-context": "0.1.2",
   "skills/create-pr-description": "0.1.1",
   "skills/investigate": "0.1.1"
 }
