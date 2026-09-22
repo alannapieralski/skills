@@ -4,7 +4,7 @@ description: Write a pull request description aimed at a reviewer who has never 
 disable-model-invocation: true
 argument-hint: "[target-branch] [emphasis]"
 metadata:
-  version: "0.1.2" # x-release-please-version
+  version: "0.1.3" # x-release-please-version
 ---
 
 # Create PR description

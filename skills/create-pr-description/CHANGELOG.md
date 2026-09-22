@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.3](https://github.com/alannapieralski/skills/compare/create-pr-description-v0.1.2...create-pr-description-v0.1.3) (2026-09-22)
+
+
+### Features
+
+* add argument-hint to investigate and create-pr-description ([111fc81](https://github.com/alannapieralski/skills/commit/111fc81f1c11ac2b773284e4d7abe27b490ac84b))
+
 ## [0.1.2](https://github.com/alannapieralski/skills/compare/create-pr-description-v0.1.1...create-pr-description-v0.1.2) (2026-09-22)
 
 
