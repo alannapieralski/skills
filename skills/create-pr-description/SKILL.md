@@ -85,11 +85,47 @@ Print the description in the conversation as markdown, ready to paste into the
 PR. Then print the review notes as a clearly separate section, since those are
 inline comments for specific lines rather than part of the description.
 
-Do not write files unless asked, and do not post to the PR host.
+Do not write files unless asked, and do not post to the PR host without
+asking first (see below).
 
 Close by flagging, in a line or two, any judgement call worth the user's
 attention: something you interpreted differently from how they described it,
 something you deliberately left out, or something the diff could not confirm.
+
+## Offering to write the description into the PR
+
+Only after the description has been printed, check quietly, without telling
+the user you are checking:
+
+1. An MCP tool is available that can edit this PR's description (GitHub or
+   Bitbucket, whichever this repo is hosted on).
+2. That tool confirms you have write access to this specific PR, not just
+   read access.
+
+If either check fails, stop there and say nothing about it. The user still
+has the description to paste in by hand.
+
+If both hold, ask with `AskUserQuestion`, using this structure:
+
+```
+question: "Write this description into PR #<number> now?"
+header: "Write to PR"
+multiSelect: false
+options:
+  - label: "Write it"
+    description: "Update the PR description on <GitHub/Bitbucket> now, so there's nothing to paste."
+  - label: "I'll paste it"
+    description: "Leave the PR untouched; use the copy printed above."
+```
+
+Fill in the PR number and host from what you already found while checking
+access, so the question is concrete rather than generic. The review notes are
+inline diff comments, a separate action, and are never posted without their
+own explicit ask, so do not fold them into this question.
+
+If they pick "Write it", write the description with the MCP tool and confirm
+it landed. If they pick "I'll paste it", or give anything other than a clear
+yes, leave the PR untouched.
 
 ## House style
 
