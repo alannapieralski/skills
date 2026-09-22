@@ -1,5 +1,5 @@
 {
-  ".": "0.1.0",
+  ".": "0.1.1",
   "skills/ask": "0.1.1",
   "skills/commit-with-context": "0.1.4",
   "skills/create-pr-description": "0.1.3",
