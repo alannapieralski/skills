@@ -45,7 +45,7 @@ Read the full diff and split it into one or more commits along concerns, not alo
 Two pulls in tension here, resolve them in this order:
 
 1. **Never commit a broken intermediate state.** If change A only makes sense, compiles, or passes with change B (a function and its only caller, a config key and the code that reads it, a rename split across files), they go in the *same* commit even if they touch different concerns on paper. Splitting them apart would mean an earlier commit leaves the tree broken or mid-thought.
-2. **Otherwise, split by concern.** If two changes are each independently coherent and neither depends on the other to make sense, put them in separate commits rather than bundling them into one "misc changes" commit.
+2. **Otherwise, split by concern.** If two changes are each independently coherent and neither depends on the other to make sense, put them in separate commits rather than bundling them into one "misc changes" commit. Sitting in the same file, the same section, or being small is not a reason to merge them, that's a matter of concern, not location or size.
 
 Decide the grouping before staging anything. For each group, note which files (or, if a single file mixes two concerns, which hunks) belong to it.
 
