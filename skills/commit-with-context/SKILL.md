@@ -90,6 +90,10 @@ Stay high level. The body explains the idea and the reason for it, not a changel
 - One line per bullet. Omit a category entirely when it has nothing to say (for example, no ticket bullet when there is no extra ticket context beyond the ID).
 - 72 characters is the hard limit per body line, including the leading `- `. Wrap a long bullet onto a continuation line indented two spaces rather than exceeding it (see the rationale bullet in the example below).
 
+### Attribution
+
+Never add a `Co-Authored-By` trailer, or any other attribution line, to the commit message.
+
 ## Source of each part
 
 - Grouping: derived from reading the whole diff in step 3, not from file names alone.
