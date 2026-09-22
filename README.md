@@ -1,4 +1,4 @@
-# alan-napieralski-numiko
+# Alan Napieralski - Numiko skills
 
 Alan Napieralski's personal Claude Code plugin for Numiko workflows, installed as `alann`.
 
